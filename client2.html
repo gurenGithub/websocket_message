@@ -1,0 +1,20 @@
+<html>
+
+<header>
+  <script>
+    var uid = 2;
+    var url = 'ws://127.0.0.1:8044/socketServer/' + uid;
+    var socket = new WebSocket(url);
+    socket.addEventListener('open', function (event) {
+      console.log('socket is open')
+
+      socket.send(JSON.stringify({msg_type:100}))
+    });
+
+    socket.addEventListener('message', function (event) {
+      console.log('Message from server', event.data);
+    });
+  </script>
+</header>
+
+</html>
